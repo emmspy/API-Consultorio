@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <title>Administrar Odontólogos</title>
+</head>
+<body>
+<h2>Administrar Odontólogos</h2>
+
+<section id="odontologos-list">
+    <ul>
+        <li>
+            <span>Odontólogo 1</span>
+            <div>
+                <button onclick="editarOdontologo(1)">Editar</button>
+                <button onclick="eliminarOdontologo(1)">Eliminar</button>
+            </div>
+        </li>
+        <li>
+            <span>Odontólogo 2</span>
+            <div>
+                <button onclick="editarOdontologo(2)">Editar</button>
+                <button onclick="eliminarOdontologo(2)">Eliminar</button>
+            </div>
+        </li>
+        <li>
+            <span>Odontólogo 3</span>
+            <div>
+                <button onclick="editarOdontologo(3)">Editar</button>
+                <button onclick="eliminarOdontologo(3)">Eliminar</button>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<h2>Agregar un nuevo Odontólogo</h2>
+
+<section id="agregar-odontologo">
+    <form>
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <input type="text" placeholder="Matrícula">
+        <button>Agregar Odontólogo</button>
+    </form>
+</section>
+
+</body>
+</html>

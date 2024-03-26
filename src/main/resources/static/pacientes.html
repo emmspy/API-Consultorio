@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <title>Administrar Pacientes</title>
+</head>
+<body>
+<h2>Administrar Pacientes</h2>
+
+<section id="pacientes-list">
+    <ul>
+        <li>
+            <span>Paciente 1</span>
+            <div>
+                <button onclick="editarPaciente(1)">Editar</button>
+                <button onclick="eliminarPaciente(1)">Eliminar</button>
+            </div>
+        </li>
+        <li>
+            <span>Paciente 2</span>
+            <div>
+                <button onclick="editarPaciente(2)">Editar</button>
+                <button onclick="eliminarPaciente(2)">Eliminar</button>
+            </div>
+        </li>
+        <li>
+            <span>Paciente 3</span>
+            <div>
+                <button onclick="editarPaciente(3)">Editar</button>
+                <button onclick="eliminarPaciente(3)">Eliminar</button>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<h2>Agregar un nuevo Paciente</h2>
+
+<section id="agregar-paciente">
+    <form>
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Apellido">
+        <input type="text" placeholder="Domicilio">
+        <input type="text" placeholder="DNI">
+        <p>Seleccione la fecha de alta:</p>
+        <input type="date" placeholder="Fecha de alta">
+        <button>Agregar Paciente</button>
+    </form>
+</section>
+
+</body>
+</html>
