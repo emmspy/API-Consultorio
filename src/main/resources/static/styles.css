@@ -1,0 +1,115 @@
+body {
+    font-family: "Space Mono", monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav {
+    background-color: #4032a8;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 20;
+    padding: 20;
+}
+
+nav ul li {
+    display: column;
+    margin-bottom: 60px; /* Reducir el valor del margen derecho */
+    margin-right: 30px;
+    margin-top: 60px
+}
+
+nav ul li a:hover {
+    color: #cc2f5b;
+}
+nav ul li a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"], button {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4032a8;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 20px;
+    font-family: "Space Mono", monospace;
+}
+
+button:hover {
+    background-color: #3f5e8a;
+}
+
+table {
+    border-collapse: collapse;
+    width: calc(100% - 40px); /* Restar el espacio del padding */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+
+
+input[type="date"] {
+    margin-bottom: 20px;
+}
+p {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+#odontologos-list li {
+    display: inline-block;
+    margin-right: 80px
+
+}
+
+#odontologos-list li div {
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+#pacientes-list li {
+    display: inline-block;
+    margin-right: 80px
+
+}
+
+#pacientes-list li div {
+    margin-right: 40px;
+    margin-top: 20px;
+}
+section #reservas {
+    margin-bottom: 60px;
+}
+
+
+
+
