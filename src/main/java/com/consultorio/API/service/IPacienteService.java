@@ -11,4 +11,5 @@ public interface IPacienteService {
     Paciente buscarPorId(Long id);
     void eliminarPorId(Long id);
     void actualizar(Paciente paciente);
+
 }

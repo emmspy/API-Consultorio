@@ -19,34 +19,43 @@ public class OdontologoService implements IOdontologoService {
         this.odontologoRepository = odontologoRepository;
     }
 
+    //guardar odontologo
     @Override
     public Odontologo guardar(Odontologo odontologo) {
 
         return odontologoRepository.save(odontologo);
     }
-
+    //traer todos los odontologos
     @Override
     public List<Odontologo> listarTodos() {
 
         return odontologoRepository.findAll();
     }
-
+    //buscar por id
     @Override
-    public Optional<Odontologo> buscarPorId(Long id) {
+    public Odontologo buscarPorId(Long id) {
         Optional<Odontologo>odontologoOptional = odontologoRepository.findById(id);
         if (odontologoOptional.isPresent()){
-            return odontologoRepository.findAllById(id);
+            return odontologoOptional.get();
         }else {
             return null;
         }
     }
-
+    //buscar por matricula
+    @Override
+    public Optional<Odontologo> findByMatricula(Integer numeroMatricula) {
+        return odontologoRepository.findByMatricula(numeroMatricula);
+    }
+    //Eliminar odontologo
     @Override
     public void eliminarPorId(Long id) {
     }
-
+    //Actualizar informacion de odontologo
     @Override
     public void actualizar(Odontologo odontologo) {
          odontologoRepository.save(odontologo);
     }
+
+
+
 }
