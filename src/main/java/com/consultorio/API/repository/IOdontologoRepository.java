@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
+ public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
     Optional<Odontologo> findByMatricula(Integer numeroMatricula);
 }

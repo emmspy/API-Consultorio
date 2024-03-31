@@ -9,36 +9,7 @@
 </head>
 <body>
 <h2>Reservas de Turnos</h2>
-<!--
-<section id="reservas">
-    <form id="formulario-reserva">
-        <h3>Agregar Nueva Reserva</h3>
-        <label for="paciente">Paciente:</label>
-        <select id="paciente" required>
-            <option value=""disabled selected>Seleccionar Paciente</option>
-            <option value="1">Paciente 1</option>
-            <option value="2">Paciente 2</option>
-            <option value="3">Paciente 3</option>
-        </select>
 
-        <label for="fecha">Fecha del Turno:</label>
-        <input type="date" id="fecha" required>
-
-        <label for="hora">Hora del Turno:</label>
-        <input type="time" id="hora" required>
-
-        <label for="odontologo">Odontólogo:</label>
-        <select id="odontologo" required>
-            <option value="" disabled selected>Seleccionar Odontólogo</option>
-            <option value="1">Odontólogo 1</option>
-            <option value="2">Odontólogo 2</option>
-            <option value="3">Odontólogo 3</option>
-        </select>
-
-        <button type="submit">Agregar Reserva</button>
-    </form>
-</section>
--->
 
 <section id="reservas">
     <!-- YA HECHO CON PA CONSUMIR APIIIIIIII VER SI FUNCIONA -->
@@ -60,8 +31,15 @@
              <option value="" disabled selected>Seleccionar Odontólogo</option>
          </select>
 
-         <button type="submit">Agregar Reserva</button>
+         <button type="submit" onclick="agregarReserva(event)">Agregar Reserva</button>
      </form>
- </section>
+</section>
+
+<section id="lista-reservas">
+    <h3>Reservas Realizadas</h3>
+    <ul id="reservas-lista"></ul>
+</section>
+
+
  </body>
  </html>

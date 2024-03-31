@@ -10,43 +10,39 @@
 <body>
 <h2>Administrar Pacientes</h2>
 
+<h3>Listado de Pacientes disponibles</h3>
+
 <section id="pacientes-list">
     <ul>
-        <li>
-            <span>Paciente 1</span>
-            <div>
-                <button onclick="editarPaciente(1)">Editar</button>
-                <button onclick="eliminarPaciente(1)">Eliminar</button>
-            </div>
-        </li>
-        <li>
-            <span>Paciente 2</span>
-            <div>
-                <button onclick="editarPaciente(2)">Editar</button>
-                <button onclick="eliminarPaciente(2)">Eliminar</button>
-            </div>
-        </li>
-        <li>
-            <span>Paciente 3</span>
-            <div>
-                <button onclick="editarPaciente(3)">Editar</button>
-                <button onclick="eliminarPaciente(3)">Eliminar</button>
-            </div>
-        </li>
+
     </ul>
+</section>
+
+<section id="editar-paciente" style="display: none;">
+    <h2>Editar Paciente</h2>
+    <form id="editar-paciente-form">
+        <input type="hidden" id="paciente-id">
+        <input type="text" id="nombre-editar" placeholder="Nombre">
+        <input type="text" id="apellido-editar" placeholder="Apellido">
+        <input type="text" id="domicilio-editar" placeholder="Domicilio">
+        <input type="text" id="dni-editar" placeholder="DNI">
+        <p>Seleccione la nueva fecha de alta:</p>
+        <input type="date" id="fechaDeAlta-editar" placeholder="Fecha de alta">
+        <button type="submit">Guardar Cambios</button>
+    </form>
 </section>
 
 <h2>Agregar un nuevo Paciente</h2>
 
 <section id="agregar-paciente">
-    <form>
-        <input type="text" placeholder="Nombre">
-        <input type="text" placeholder="Apellido">
-        <input type="text" placeholder="Domicilio">
-        <input type="text" placeholder="DNI">
+    <form id="pacienteForm" action="/guardarPaciente" method="post">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <input type="text" id="apellido" name="apellido" placeholder="Apellido">
+        <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio">
+        <input type="text" id="dni" name="dni" placeholder="DNI">
         <p>Seleccione la fecha de alta:</p>
-        <input type="date" placeholder="Fecha de alta">
-        <button>Agregar Paciente</button>
+        <input type="date" id="fechaDeAlta" name="fechaDeAlta">
+        <button type="submit">Agregar Paciente</button>
     </form>
 </section>
 
