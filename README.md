@@ -1,4 +1,4 @@
-# Proyecto Spring Boot con HTML, CSS y JavaScript
+# Administracion de consultorio odontologico
 
 Este proyecto implementa una aplicación web utilizando Spring Boot para el backend y HTML, CSS y JavaScript para el frontend. Este archivo README proporciona una visión general del proyecto y guía sobre cómo ejecutarlo.
 
