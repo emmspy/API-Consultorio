@@ -30,7 +30,7 @@ public class OdontologoController {
     //buscar odontologo por matricula
     @GetMapping("/matricula/{numeroMatricula}")
     public ResponseEntity<Odontologo> buscarMatricula(@PathVariable Integer numeroMatricula) throws Exception {
-        Optional<Odontologo> odontologoOptional = odontologoService.findByMatricula(numeroMatricula);
+        Optional<Odontologo> odontologoOptional = odontologoService.findByNumeroMatricula(numeroMatricula);
 
         if (odontologoOptional.isPresent()){
             return ResponseEntity.ok(odontologoOptional.get());

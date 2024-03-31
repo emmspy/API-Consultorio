@@ -49,7 +49,6 @@ public class PacienteController {
         }
         return response;
     }
-    //Eliminar paciente
 
 
 }

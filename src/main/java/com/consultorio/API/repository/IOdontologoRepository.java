@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
  public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
-    Optional<Odontologo> findByMatricula(Integer numeroMatricula);
+    Optional<Odontologo> findByNumeroMatricula(Integer numeroMatricula);
 }

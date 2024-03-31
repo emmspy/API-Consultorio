@@ -43,8 +43,8 @@ public class OdontologoService implements IOdontologoService {
     }
     //buscar por matricula
     @Override
-    public Optional<Odontologo> findByMatricula(Integer numeroMatricula) {
-        return odontologoRepository.findByMatricula(numeroMatricula);
+    public Optional<Odontologo> findByNumeroMatricula(Integer numeroMatricula) {
+        return odontologoRepository.findByNumeroMatricula(numeroMatricula);
     }
     //Eliminar odontologo
     @Override
