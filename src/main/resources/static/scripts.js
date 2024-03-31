@@ -1,4 +1,4 @@
-// manejo de Odontólogos
+//manejo de Odontólogos
 function listarOdontologos() {
     const url = '/odontologos';
     const settings = {
@@ -8,7 +8,7 @@ function listarOdontologos() {
     fetch(url, settings)
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Imprime los datos recibidos del servidor en la consola
+            console.log(data); //viendo errores
             const listaOdontologos = document.getElementById("odontologos-list");
             listaOdontologos.innerHTML = '';
             data.forEach(odontologo => {
@@ -29,7 +29,7 @@ function listarOdontologos() {
         });
 }
 
-// llamar a listarOdontologos al cargar la página
+//llamar a listarOdontologos al cargar la página
 window.addEventListener('load', function () {
     if (document.getElementById("odontologos-list")) {
         listarOdontologos();
