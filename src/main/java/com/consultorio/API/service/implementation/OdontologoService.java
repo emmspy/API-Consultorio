@@ -43,13 +43,13 @@ public class OdontologoService implements IOdontologoService {
     }
     //buscar por matricula
     @Override
-    public Optional<Odontologo> findByMatricula(Integer numeroMatricula) {
-        return odontologoRepository.findByMatricula(numeroMatricula);
+    public Optional<Odontologo> findByNumeroMatricula(Integer numeroMatricula) {
+        return odontologoRepository.findByNumeroMatricula(numeroMatricula);
     }
     //Eliminar odontologo
     @Override
-    public void eliminarPorId(Long id) {
-    }
+    public void eliminarPorId(Long id) { odontologoRepository.deleteById(id); }
+
     //Actualizar informacion de odontologo
     @Override
     public void actualizar(Odontologo odontologo) {

@@ -29,13 +29,13 @@ public class OdontologoController {
 
     //buscar odontologo por matricula
     @GetMapping("/matricula/{numeroMatricula}")
-    public ResponseEntity<Odontologo> buscarMatricula(@PathVariable Integer numeroMatricula) throws Exception {
-        Optional<Odontologo> odontologoOptional = odontologoService.findByMatricula(numeroMatricula);
+    public ResponseEntity<Odontologo> buscarNumeroMatricula(@PathVariable Integer numeroMatricula) throws Exception {
+        Optional<Odontologo> odontologoOptional = odontologoService.findByNumeroMatricula(numeroMatricula);
 
         if (odontologoOptional.isPresent()){
             return ResponseEntity.ok(odontologoOptional.get());
         }else {
-            throw new Exception("No se encontro el odontologo con la matricula " + numeroMatricula);
+            throw new Exception("No se encontró el odontólogo con la matricula " + numeroMatricula);
         }
     }
     //lista todos los odontologos
@@ -44,7 +44,7 @@ public class OdontologoController {
         return ResponseEntity.ok(odontologoService.listarTodos());
     }
 
-    //Actualizar un odontologo
+    //actualizar un odontologo
     @PutMapping
     public ResponseEntity<String> actualizar(@RequestBody Odontologo odontologo){
         ResponseEntity<String> response = null;
@@ -52,12 +52,28 @@ public class OdontologoController {
 
         if (odontologoBuscado != null ){
             odontologoService.actualizar(odontologo);
-            response = ResponseEntity.ok("Se ha actualizado el odontologo " + odontologo.getNombre());
+            response = ResponseEntity.ok("Se ha actualizado el odontólogo " + odontologo.getNombre());
         } else{
-            response = ResponseEntity.ok().body("No se puede actualizar el odontologo");
+            response = ResponseEntity.ok().body("No se puede actualizar el odontólogo");
         }
         return response;
     }
     //eliminar un odontologo
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<String> eliminarOdontologo(@PathVariable Long id) {
+        odontologoService.eliminarPorId(id);
+        return ResponseEntity.ok("Odontólogo eliminado con éxito");
+    }
+    @PostMapping("/agregar")
+    public ResponseEntity<String> agregarOdontologo(@RequestBody Odontologo odontologo) {
+        Odontologo odontologoGuardado = odontologoService.guardar(odontologo);
+        if (odontologoGuardado != null) {
+            return ResponseEntity.ok("Odontólogo agregado correctamente");
+        } else {
+            return ResponseEntity.badRequest().body("Error al agregar odontólogo");
+        }
+    }
 
 }
+
+
