@@ -1,5 +1,6 @@
 package com.consultorio.API.controller;
 
+import com.consultorio.API.entity.Odontologo;
 import com.consultorio.API.entity.Paciente;
 import com.consultorio.API.service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,8 @@ public class PacienteController {
 
     @Autowired
     public PacienteController(IPacienteService pacienteService) {
-        this.pacienteService = pacienteService;
-    }
 
-    //guardar un paciente
-    @PostMapping
-    public ResponseEntity<Paciente> guardar(@RequestBody Paciente paciente) {
-        return ResponseEntity.ok(pacienteService.guardar(paciente));
+        this.pacienteService = pacienteService;
     }
 
     //buscar por id
@@ -32,8 +28,9 @@ public class PacienteController {
     }
 
     //listar todos
-    @GetMapping
+    @GetMapping("/listarTodos")
     public ResponseEntity<List<Paciente>> listarTodos() {
+
         return ResponseEntity.ok(pacienteService.listarTodos());
     }
 

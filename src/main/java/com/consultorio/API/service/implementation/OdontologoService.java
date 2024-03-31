@@ -28,9 +28,9 @@ public class OdontologoService implements IOdontologoService {
     //traer todos los odontologos
     @Override
     public List<Odontologo> listarTodos() {
-
         return odontologoRepository.findAll();
     }
+
     //buscar por id
     @Override
     public Odontologo buscarPorId(Long id) {
@@ -53,7 +53,8 @@ public class OdontologoService implements IOdontologoService {
     //Actualizar informacion de odontologo
     @Override
     public void actualizar(Odontologo odontologo) {
-         odontologoRepository.save(odontologo);
+
+        odontologoRepository.save(odontologo);
     }
 
 

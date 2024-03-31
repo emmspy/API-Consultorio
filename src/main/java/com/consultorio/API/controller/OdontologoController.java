@@ -39,8 +39,9 @@ public class OdontologoController {
         }
     }
     //lista todos los odontologos
-    @GetMapping
+    @GetMapping("/todos")
     public ResponseEntity<List<Odontologo>> listarTodos() {
+
         return ResponseEntity.ok(odontologoService.listarTodos());
     }
 
@@ -64,6 +65,7 @@ public class OdontologoController {
         odontologoService.eliminarPorId(id);
         return ResponseEntity.ok("Odontólogo eliminado con éxito");
     }
+    //agregar
     @PostMapping("/agregar")
     public ResponseEntity<String> agregarOdontologo(@RequestBody Odontologo odontologo) {
         Odontologo odontologoGuardado = odontologoService.guardar(odontologo);
