@@ -10,40 +10,27 @@
 <body>
 <h2>Administrar Odontólogos</h2>
 
-<section id="odontologos-list">
-    <ul>
-        <li>
-            <span>Odontólogo 1</span>
-            <div>
-                <button onclick="editarOdontologo(1)">Editar</button>
-                <button onclick="eliminarOdontologo(1)">Eliminar</button>
-            </div>
-        </li>
-        <li>
-            <span>Odontólogo 2</span>
-            <div>
-                <button onclick="editarOdontologo(2)">Editar</button>
-                <button onclick="eliminarOdontologo(2)">Eliminar</button>
-            </div>
-        </li>
-        <li>
-            <span>Odontólogo 3</span>
-            <div>
-                <button onclick="editarOdontologo(3)">Editar</button>
-                <button onclick="eliminarOdontologo(3)">Eliminar</button>
-            </div>
-        </li>
-    </ul>
+<h3>Listado de Odontólogos disponibles</h3>
+
+<section id="editar-odontologo" style="display: none;">
+    <h2>Editar Odontólogo</h2>
+    <form id="editar-odontologo-form">
+        <input type="hidden" id="odontologo-id">
+        <input type="text" id="nombre-editar" placeholder="Nombre">
+        <input type="text" id="apellido-editar" placeholder="Apellido">
+        <input type="text" id="matricula-editar" placeholder="Matrícula">
+        <button type="submit">Guardar Cambios</button>
+    </form>
 </section>
 
 <h2>Agregar un nuevo Odontólogo</h2>
 
 <section id="agregar-odontologo">
-    <form>
-        <input type="text" placeholder="Nombre">
-        <input type="text" placeholder="Apellido">
-        <input type="text" placeholder="Matrícula">
-        <button>Agregar Odontólogo</button>
+    <form id="form-agregar-odontologo" action="/odontologos" method="post">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+        <input type="text" id="matricula" name="matricula" placeholder="Matrícula" required>
+        <button type="submit">Agregar Odontólogo</button>
     </form>
 </section>
 

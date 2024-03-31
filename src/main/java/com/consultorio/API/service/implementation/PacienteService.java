@@ -30,7 +30,7 @@ public class PacienteService implements IPacienteService {
     @Override
     public List<Paciente> listarTodos() {
 
-        return null;
+        return pacienteRepository.findAll();
     }
 
     @Override
