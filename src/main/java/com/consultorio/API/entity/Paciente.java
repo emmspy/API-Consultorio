@@ -29,5 +29,16 @@ public class Paciente {
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     private Set<Turno> turnoSet = new HashSet();
 
-
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni=" + dni +
+                ", fechaDeAlta=" + fechaDeAlta +
+                ", domicilio='" + domicilio + '\'' +
+                ", turnoSet=" + turnoSet +
+                '}';
+    }
 }

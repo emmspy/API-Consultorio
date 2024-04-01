@@ -29,6 +29,7 @@ public class OdontologoController {
 
     //buscar odontologo por matricula
     @GetMapping("/matricula/{numeroMatricula}")
+
     public ResponseEntity<Odontologo> buscarMatricula(@PathVariable Integer numeroMatricula) throws Exception {
         Optional<Odontologo> odontologoOptional = odontologoService.findByNumeroMatricula(numeroMatricula);
 
@@ -39,12 +40,13 @@ public class OdontologoController {
         }
     }
     //lista todos los odontologos
-    @GetMapping
+    @GetMapping("/todos")
     public ResponseEntity<List<Odontologo>> listarTodos() {
+
         return ResponseEntity.ok(odontologoService.listarTodos());
     }
 
-    //Actualizar un odontologo
+    //actualizar un odontologo
     @PutMapping
     public ResponseEntity<String> actualizar(@RequestBody Odontologo odontologo){
         ResponseEntity<String> response = null;
@@ -73,10 +75,6 @@ public class OdontologoController {
             return ResponseEntity.badRequest().body("Error al agregar odontólogo");
         }
     }
-
-
-
-
 
 
 }

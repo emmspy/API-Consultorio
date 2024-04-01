@@ -25,4 +25,13 @@ public class Turno {
     private Paciente paciente;
     private LocalDate fechaIngreso;
 
+    @Override
+    public String toString() {
+        return "Turno{" +
+                "id=" + id +
+                ", odontologo=" + odontologo +
+                ", paciente=" + paciente +
+                ", fechaIngreso=" + fechaIngreso +
+                '}';
+    }
 }

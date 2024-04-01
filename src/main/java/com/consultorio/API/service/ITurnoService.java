@@ -2,14 +2,15 @@ package com.consultorio.API.service;
 
 import com.consultorio.API.dto.request.TurnoRequestDTO;
 import com.consultorio.API.dto.response.TurnoResponseDTO;
-import com.consultorio.API.entity.Turno;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ITurnoService {
     TurnoResponseDTO guardar(TurnoRequestDTO turnoRequestDTO);
-    List<TurnoRequestDTO> listarTodos();
-    TurnoResponseDTO buscarPorId(Long id);
-    void eliminar(Integer id);
-    void actualizar(TurnoRequestDTO turnoRequestDTO);
+    List<TurnoResponseDTO> listarTodos();
+    Optional<TurnoResponseDTO> buscarPorId(Long id);
+    void eliminar(Long id);
+
+
 }

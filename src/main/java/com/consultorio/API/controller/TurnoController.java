@@ -52,18 +52,27 @@ public class TurnoController {
     }
     //buscar todos los turnos
     @GetMapping
-    public ResponseEntity<List<TurnoRequestDTO>> findAll(){
+    public ResponseEntity<List<TurnoResponseDTO>> findAll(){
         LOGGER.info("Buscando todos los turnos");
         return ResponseEntity.ok(turnoService.listarTodos());
     }
 
     //buscar turno por id
+    @GetMapping ("/{id}")
     public ResponseEntity<TurnoResponseDTO> findById(@PathVariable Long id) {
         turnoService.buscarPorId(id);
         return ResponseEntity.ok().build();
     }
 
-    //actualizar turno
-    //eliminar turno
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarTurno(@PathVariable Long id) {
+        LOGGER.info("Eliminando el turno con ID: " + id);
+        try {
+            turnoService.eliminar(id);
+            return ResponseEntity.ok("Turno eliminado exitosamente");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar el turno");
+        }
+    }
 
 }

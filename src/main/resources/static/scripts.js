@@ -1,4 +1,5 @@
 // manejo de Odontólogos
+
 function listarOdontologos() {
     const url = '/odontologos';
     const settings = {
@@ -8,6 +9,9 @@ function listarOdontologos() {
     fetch(url, settings)
         .then(response => response.json())
         .then(data => {
+
+            console.log(data); //viendo errores
+
             const listaOdontologos = document.getElementById("odontologos-list");
             listaOdontologos.innerHTML = '';
             data.forEach(odontologo => {
@@ -28,13 +32,22 @@ function listarOdontologos() {
         });
 }
 
+
+//llamar a listarOdontologos al cargar la página
+window.addEventListener('load', function () {
+
 window.addEventListener('load', function () {
     // solo si estamos en odontólogos, corregir parámetro
+
     if (document.getElementById("odontologos-list")) {
         listarOdontologos();
     }
 
+
+    const formularioAgregarOdontologo = document.querySelector('#agregar-odontologo');
+
     const formularioAgregarOdontologo = document.querySelector('#agregar_odontologo');
+
     formularioAgregarOdontologo.addEventListener('submit', function (event) {
         event.preventDefault();
         agregarOdontologo();
@@ -239,6 +252,146 @@ window.addEventListener('load', function () {
         agregarPaciente();
     });
 
+
+            fetch(url, settings)
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Odontólogo eliminado con éxito');
+                        listarOdontologos();
+                    } else {
+                        throw new Error('Error al eliminar el odontólogo');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al eliminar el odontólogo:', error);
+                    alert('Hubo un error al eliminar el odontólogo');
+                });
+        }
+
+    function mostrarFormularioEdicion(id, tipo) {
+        if (tipo === 'odontologo') {
+            const formulario = document.getElementById('editar-odontologo');
+            if (formulario) {
+                formulario.style.display = 'block';
+                fetch('/odontologos/' + id)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('odontologo-id').value = data.id;
+                        document.getElementById('nombre-editar').value = data.nombre;
+                        document.getElementById('apellido-editar').value = data.apellido;
+                        document.getElementById('numeroMatricula-editar').value = data.numeroMatricula;
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar los datos del odontólogo para editar:', error);
+                        alert('Hubo un error al cargar los datos del odontólogo');
+                    });
+            }
+        } else if (tipo === 'paciente') {
+            const formularioPaciente = document.getElementById('editar-paciente');
+            if (formularioPaciente) {
+                formularioPaciente.style.display = 'block';
+                fetch('/pacientes/' + id)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('paciente-id').value = data.id;
+                        document.getElementById('nombre-editar').value = data.nombre;
+                        document.getElementById('apellido-editar').value = data.apellido;
+                        document.getElementById('domicilio-editar').value = data.domicilio;
+                        document.getElementById('dni-editar').value = data.dni;
+                        document.getElementById('fechaDeAlta-editar').value = data.fechaDeAlta;
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar los datos del paciente para editar:', error);
+                        alert('Hubo un error al cargar los datos del paciente');
+                    });
+            }
+        }
+    }
+
+    document.addEventListener('click', function (event) {
+        if (event.target.matches('.editar-odontologo')) {
+            const id = event.target.dataset.id;
+            mostrarFormularioEdicion(id, 'odontologo');
+        }
+    });
+
+    // manejo de Pacientes
+    function listarPacientes() {
+        const url = '/pacientes';
+        const settings = {
+            method: 'GET'
+        };
+
+        fetch(url, settings)
+            .then(response => response.json())
+            .then(data => {
+                const listaPacientes = document.getElementById("pacientes-list");
+                listaPacientes.innerHTML = '';
+                data.forEach(paciente => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${paciente.nombre} ${paciente.apellido}</span>
+                        <div>
+                            <button class="editar-paciente" data-id="${paciente.id}">Editar</button>
+                            <button class="eliminar-paciente" data-id="${paciente.id}">Eliminar</button>
+                        </div>
+                    `;
+                    listaPacientes.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error al listar pacientes:', error);
+                alert('Hubo un error al listar pacientes');
+            });
+
+    }
+
+    window.addEventListener('load', function () {
+        // solo si estamos en pacientes, corregir parámetro
+        if (document.getElementById("pacientes-list")) {
+            listarPacientes();
+        }
+
+
+    function agregarPaciente() {
+        const formData = {
+            nombre: document.querySelector('#nombre').value,
+            apellido: document.querySelector('#apellido').value,
+            domicilio: document.querySelector('#domicilio').value,
+            dni: document.querySelector('#dni').value,
+            fechaDeAlta: document.querySelector('#fechaDeAlta').value
+        };
+
+        const url = '/pacientes';
+        const settings = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        };
+
+        fetch(url, settings)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Paciente agregado:', data);
+                listarPacientes();
+                resetUploadForm();
+            })
+            .catch(error => {
+                console.error('Error al agregar paciente:', error);
+                alert('Hubo un error al agregar el paciente');
+                resetUploadForm();
+            });
+    }
+
+    const formularioAgregarPaciente = document.querySelector('#pacienteForm');
+    formularioAgregarPaciente.addEventListener('submit', function (event) {
+        event.preventDefault();
+        agregarPaciente();
+    });
+
+
     // manejo de Reservas
     function agregarReserva(event) {
         event.preventDefault();
@@ -302,9 +455,11 @@ window.addEventListener('load', function () {
             });
     }
 
+
     window.addEventListener('load', function () {
         // solo si estamos en reservas, corregir parámetro
         if (document.getElementById("reservas-lista")) {
             actualizarListaReservas();
         }
+
 });

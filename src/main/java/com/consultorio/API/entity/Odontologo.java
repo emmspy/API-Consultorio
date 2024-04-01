@@ -26,4 +26,14 @@ public class Odontologo {
     @OneToMany(mappedBy = "odontologo")
     private Set<Turno> turnoSet = new HashSet<>();
 
+    @Override
+    public String toString() {
+        return "Odontologo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", numeroMatricula=" + numeroMatricula +
+                ", turnoSet=" + turnoSet +
+                '}';
+    }
 }

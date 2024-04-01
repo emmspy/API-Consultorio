@@ -12,6 +12,10 @@
 
 <h3>Listado de Odontólogos disponibles</h3>
 
+<section id="odontologos-list">
+    <ul>
+
+    </ul>
 <section id="editar-odontologo" style="display: none;">
     <h2>Editar Odontólogo</h2>
     <form id="editar-odontologo-form">
@@ -19,6 +23,18 @@
         <input type="text" id="nombre-editar" placeholder="Nombre">
         <input type="text" id="apellido-editar" placeholder="Apellido">
         <input type="text" id="matricula-editar" placeholder="Matrícula">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+  
+</section>
+
+<section id="editar-odontologo" style="display: none;">
+    <h2>Editar Odontólogo</h2>
+    <form id="editar-odontologo-form">
+        <input type="hidden" id="odontologo-id">
+        <input type="text" id="nombre-editar" placeholder="Nombre">
+        <input type="text" id="apellido-editar" placeholder="Apellido">
+        <input type="text" id="numeroMatricula-editar" placeholder="Matrícula">
         <button type="submit">Guardar Cambios</button>
     </form>
 </section>
@@ -29,7 +45,9 @@
     <form id="form-agregar-odontologo" action="/odontologos" method="post">
         <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
         <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-        <input type="text" id="matricula" name="matricula" placeholder="Matrícula" required>
+
+        <input type="text" id="numeroMatricula" name="numeroMatricula" placeholder="Matrícula" required>
+
         <button type="submit">Agregar Odontólogo</button>
     </form>
 </section>
