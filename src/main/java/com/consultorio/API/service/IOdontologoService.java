@@ -9,7 +9,10 @@ public interface IOdontologoService {
     Odontologo guardar (Odontologo odontologo);
     List<Odontologo> listarTodos();
     Odontologo buscarPorId(Long id);
+
+    //buscar por matricula
     Optional<Odontologo> findByNumeroMatricula(Integer numeroMatricula);
+
     void eliminarPorId(Long id);
     void actualizar (Odontologo odontologo);
 }
